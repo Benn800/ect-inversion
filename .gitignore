@@ -1,0 +1,9 @@
+# .gitignore
+data/raw/          # large COMSOL files
+models/            # saved model binaries
+figures/           # reproducible from code
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.xlsx             # raw data files
+mlflow_runs/       # if you add MLflow later
