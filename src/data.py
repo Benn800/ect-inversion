@@ -2,7 +2,7 @@
 data.py functions-
 load_raw() - loads em_sensor_data.xlsx
 rename_columns() - renames the columns for better readability
-compute_inductance() - calculates the difference between the real and imag values of inductance for coil 2 and coil 3
+compute_differential() - calculates the difference between the real and imag values of inductance for coil 2 and coil 3
 reshape_wide() - reshapes data to 55x16 format 
 ((unique combinations of 11 restivity and 5 permeability values) x (real and imag I values for 8 frequencies))
 """
@@ -23,7 +23,7 @@ def rename_columns(df):
                 'coil3_real', 'coil3_imag']
     return df
     
-def compute_inductance(df):
+def compute_differential(df):
     # Differential mutual inductance: H = coil2 - coil3
     # Both the real and imaginary parts are differenced independently.
     df['H_real'] = df['coil2_real'] - df['coil3_real']
@@ -51,6 +51,6 @@ def reshape_wide(df):
 def load_data():
     df = load_raw()
     df = rename_columns(df)
-    df = compute_inductance(df)
+    df = compute_differential(df)
     df = reshape_wide(df)
     return df    
