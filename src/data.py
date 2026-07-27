@@ -32,10 +32,10 @@ def compute_differential(df):
     # COMSOL coil orientation can produce an overall sign flip relative to
     # the physical measurement convention. If the majority of H_real values
     # are negative, negate the whole column so downstream plots are intuitive.
-    if df['H_real'].mean() < 0:
-        df['H_real'] = -df['H_real']
-    if df['H_imag'].mean() < 0:
-        df['H_imag'] = -df['H_imag']
+    # if df['H_real'].mean() < 0:
+    #     df['H_real'] = -df['H_real']
+    # if df['H_imag'].mean() < 0:
+    #     df['H_imag'] = -df['H_imag']
     df = df.drop(labels=['coil2_real', 'coil2_imag', 'coil3_real', 'coil3_imag'], axis=1)    
     return df    
 
