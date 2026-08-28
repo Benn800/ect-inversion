@@ -21,7 +21,8 @@ def compute_phase(df):
     for f in frequencies:
         h_imag = df[f'H_imag_{f}']
         h_real = df[f'H_real_{f}']
-        new_d[f'phase_{f}'] = np.arctan2(h_imag, h_real)
+        new_d[f'phase_{f}'] = np.mod(np.arctan2(h_imag, h_real), 2 * np.pi)
+
     return pd.DataFrame(new_d)    
 
 
