@@ -1,9 +1,17 @@
-# .gitignore
-data/raw/          # large COMSOL files
-models/            # saved model binaries
-figures/           # reproducible from code
+# Raw and generated project artifacts
+# Large COMSOL files
+data/raw/
+# Saved model binaries
+models/
+# Reproducible figures
+figures/
+results/
+
+# Python and notebook artifacts
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
-*.xlsx             # raw data files
-mlflow_runs/       # if you add MLflow later
+# Raw data files
+*.xlsx
+# Optional MLflow output
+mlflow_runs/
